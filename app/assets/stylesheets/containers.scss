@@ -1,7 +1,13 @@
 .container {
-  width: 700px;
-  margin: 0 auto;
-  margin-top: 40px;
+//  background-color: $app-body-bg;
+//  border-radius: 1rem;
+//  border: 1px solid $default-border;
+//  box-sizing: border-box;
+  color: $default-text-color;
+  margin: 1rem auto;
+  max-width: 48rem;
+  padding: 24px;
+  width: 90%;
 
   @media screen and (max-width: 700px) {
     width: 100%;
@@ -21,7 +27,7 @@
 
 .logo-container {
   max-width: 400px;
-  margin: 100px auto;
+  margin: 48px auto;
   margin-bottom: 0;
   cursor: default;
 

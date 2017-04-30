@@ -6,3 +6,53 @@ $color5: #ffffff !default; // white
 $color6: #df405a !default; // error red
 $color7: #79bd9a !default; // succ green
 $color8: #000000 !default; // black
+
+$vibrant:                   #71BA51;
+$vibrant-highlight:         #EEE657;
+$accent:                    #FF6766;
+$muted-on-dark:             #ddd;
+$muted-on-light:            #777;
+$highlight-on-light:        #000;
+$highlight-on-dark:         #fff;
+
+$default-border:            #999;
+$muted-border:              $muted-on-dark;
+
+$default-body-bg:           #ECF0F1;
+$app-body-bg:               #fefefe;
+$admin-body-bg:             #ECF0F1;
+$default-text-color:        #212121;
+$muted-text-color:          $muted-on-light;
+
+//$button-bg:                 #607b84;
+$button-bg:                 #CD6B97;
+$button-text-color:         #fff;
+$button-bg-hover:           $vibrant;
+$button-disabled-bg:        $muted-on-dark;
+$button-active-color:       $highlight-on-dark;
+
+$ui-bg:                     $app-body-bg;
+$column-inner-bg:           $default-body-bg;
+$column-header-bg:          #97CE68;
+$column-empty-text:         $muted-on-light;
+$header-icon-color:         #444;
+$back-button-color:         #4b6067;
+
+$drawer-inner-bg:           #d2dbde;
+$drawer-header-bg:          #607b84;
+$drawer-icon-color:         #fff;
+
+$collapse-bg:               #4b6067;
+$collapse-text-color:       $muted-on-dark;
+
+$status-border-color:       $muted-border;
+$status-link:               #467686;
+$display-name-strong:       $default-text-color;
+$status-icon-highlight:     $accent;
+$detailed-status-bg:        #e1e7e9;
+$detailed-status-action-bg: #e1e7e9;
+
+$about-form-bg:             $column-inner-bg;
+$h1-color:                  $muted-text-color;
+$hx-color:                  #1d781d;
+

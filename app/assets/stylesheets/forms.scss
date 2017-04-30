@@ -4,7 +4,7 @@ code {
 }
 
 .form-container {
-  max-width: 400px;
+  max-width: 30em;
   padding: 20px;
   margin: 0 auto;
 }
@@ -16,7 +16,7 @@ code {
 
   span.hint {
     display: block;
-    color: $color3;
+    color: $muted-text-color;
     font-size: 12px;
     margin-top: 4px;
   }
@@ -42,14 +42,16 @@ code {
     }
   }
 
-  .input.file, .input.select, .input.radio_buttons {
+  .input.file,
+  .input.select,
+  .input.radio_buttons {
     padding: 15px 0;
     margin-bottom: 0;
 
     label {
       font-family: inherit;
       font-size: 16px;
-      color: $color5;
+      color: $default-text-color;
       display: block;
       padding-top: 5px;
     }
@@ -63,7 +65,7 @@ code {
     margin-bottom: 5px;
     font-family: inherit;
     font-size: 14px;
-    color: white;
+    color: $default-text-color;
     display: block;
     width: auto;
   }
@@ -74,7 +76,7 @@ code {
     label {
       font-family: inherit;
       font-size: 14px;
-      color: white;
+      color: $default-text-color;
       display: block;
       width: auto;
     }
@@ -106,7 +108,7 @@ code {
     border-radius: 2px 2px 0 0;
     padding: 7px 4px;
     font-size: 16px;
-    color: $color5;
+    color: $vibrant;
     display: block;
     width: 100%;
     outline: 0;
@@ -115,10 +117,11 @@ code {
 
     &:invalid {
       box-shadow: none;
+      color: $accent;
     }
 
     &:focus:invalid {
-      border-bottom-color: $color6;
+      border-bottom-color: $accent;
     }
 
     &:required:valid {
@@ -126,7 +129,7 @@ code {
     }
 
     &:active, &:focus {
-      border-bottom-color: $color4;
+      border-bottom-color: $vibrant;
       background: rgba($color8, 0.1);
     }
   }
@@ -150,17 +153,18 @@ code {
 
   .actions {
     margin-top: 30px;
+    text-align: center;
   }
 
-  button, .block-button {
-    display: block;
-    width: 100%;
+  button,
+  .block-button {
+    display: inline-block;
     border: 0;
     border-radius: 4px;
-    background: $color4;
-    color: $color5;
+    background: $button-bg;
+    color: $button-text-color;
     font-size: 18px;
-    padding: 10px;
+    padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
@@ -171,13 +175,13 @@ code {
     margin-bottom: 10px;
 
     &:hover {
-      background-color: lighten($color4, 5%);
+      background-color: $button-bg-hover;
     }
 
     &:active, &:focus {
       position: relative;
       top: 1px;
-      background-color: darken($color4, 5%);
+      background-color: $button-bg-hover;
     }
 
     &.negative {
