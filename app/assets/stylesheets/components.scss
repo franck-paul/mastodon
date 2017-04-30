@@ -440,7 +440,7 @@
   }
 
   .status__content__spoiler-link {
-    background: lighten($color1, 30%);
+    background: $drawer-inner-bg;
 
     &:hover {
       background: lighten($color1, 33%);
@@ -943,7 +943,7 @@ a.status__content__spoiler-link {
 }
 
 .star-icon.active {
-  color: #ca8f04;
+  color: #F7BC05;
 }
 
 .notification__display-name {
