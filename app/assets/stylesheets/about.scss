@@ -1,17 +1,13 @@
 .about-body {
   .wrapper {
-    background-color: $app-body-bg;
-    border-radius: 1rem;
-    border: 1px solid $default-border;
-    box-sizing: border-box;
-    color: $default-text-color;
-    margin: 1rem auto;
-    max-width: 48rem;
-    padding: 24px;
-    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    color: $color3;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     &.thicc {
-      max-width: 44rem;
+      max-width: 700px;
     }
   }
 
@@ -19,7 +15,7 @@
     font: 46px/52px 'Roboto', sans-serif;
     font-weight: 600;
     margin-bottom: 20px;
-    color: $h1-color;
+    color: $color4;
     padding: 20px 0;
 
     img {
@@ -36,7 +32,7 @@
     line-height: 28px;
     font-weight: 400;
     margin-bottom: 20px;
-    color: $hx-color;
+    color: $color5;
   }
 
   h3 {
@@ -45,7 +41,7 @@
     line-height: 28px;
     font-weight: 400;
     margin-bottom: 20px;
-    color: $hx-color;
+    color: $color2;
   }
 
   ul, ol {
@@ -71,7 +67,7 @@
     margin-bottom: 12px;
 
     a {
-      color: $vibrant;
+      color: $color4;
       text-decoration: underline;
     }
   }
@@ -80,8 +76,8 @@
     display: inline-block;
     padding: 7px 7px 5px 7px;
     margin: 0 2px;
-    background: $accent;
-    color: $default-text-color;
+    background: $color3;
+    color: $color1;
     font: 16px/16px 'Montserrat', sans-serif;
     font-weight: 300;
   }
@@ -128,8 +124,8 @@
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid $muted-border;
-  border-bottom: 1px solid $muted-border;
+  border-top: 1px solid lighten($color1, 10%);
+  border-bottom: 1px solid lighten($color1, 10%);
   padding-right: 14px;
 
   .section {
@@ -146,7 +142,7 @@
       font-size: 16px;
 
       &:last-child {
-        color: $muted-text-color;
+        color: $color2;
         font-size: 14px;
       }
     }
@@ -155,7 +151,7 @@
       font-weight: 500;
       font-size: 32px;
       line-height: 48px;
-      color: $accent;
+      color: $color5;
     }
   }
 
@@ -231,15 +227,14 @@
   }
 
   .sidebar {
-    border-left: 1px solid $muted-border;
+    border-left: 1px solid lighten($color1, 10%);
     width: 180px;
     flex: 0 0 auto;
   }
 
   .panel {
     .panel-header {
-      background: $collapse-bg;
-      color: $collapse-text-color;
+      background: lighten($color1, 10%);
       padding: 7px 14px;
       text-transform: uppercase;
       font-size: 12px;
@@ -248,13 +243,9 @@
 
     .panel-body {
       padding: 14px;
-      background: $drawer-header-bg;
-      color: $color5;
     }
 
     .panel-list {
-      background: $drawer-header-bg;
-
       ul {
         list-style: none;
         margin: 0;
@@ -278,16 +269,16 @@
 
             &:hover {
               color: $color5;
-              background: darken($drawer-header-bg, 15%);
+              background-color: darken($color1, 5%);
               transition: all 100ms linear;
             }
 
             &.selected {
-              color: $default-text-color;
-              background-color: $vibrant;
+              color: $color5;
+              background-color: $color4;
 
               &:hover {
-                background-color: lighten($vibrant, 5%);
+                background-color: lighten($color4, 5%);
               }
             }
           }
@@ -326,7 +317,6 @@
 .screenshot-with-signup {
   display: flex;
   margin-bottom: 20px;
-  margin-top: 48px;
 
   .mascot {
     flex: 1 1 auto;
@@ -343,15 +333,13 @@
     }
   }
 
-  .simple_form,
-  .closed-registrations-message {
+  .simple_form, .closed-registrations-message {
     width: 300px;
     flex: 0 0 auto;
-    background: $about-form-bg;
+    background: rgba(darken($color1, 7%), 0.5);
     padding: 14px;
     border-radius: 4px;
-    box-shadow: 0 0 15px rgba($drawer-header-bg, 0.4);
-    color: $muted-text-color;
+    box-shadow: 0 0 15px rgba($color8, 0.4);
 
     .actions {
       margin-bottom: 0;
@@ -361,8 +349,7 @@
       text-align: center;
 
       a {
-        color: $muted-text-color;
-        text-decoration: underline;
+        color: $color2;
       }
     }
   }

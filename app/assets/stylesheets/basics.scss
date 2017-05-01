@@ -1,12 +1,12 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: $default-body-bg;
+  background: $color1 image-url('background-photo.jpg');
   background-size: cover;
   background-attachment: fixed;
   font-size: 13px;
   line-height: 18px;
   font-weight: 400;
-  color: $default-text-color;
+  color: $color5;
   padding-bottom: 140px;
   text-rendering: optimizelegibility;
   font-feature-settings: "kern";
@@ -17,7 +17,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
-    background: $muted-text-color;
+    background: $color1;
   }
 
   &.embed {
@@ -33,7 +33,7 @@ body {
   }
 
   &.admin {
-    background: $admin-body-bg;
+    background: darken($color1, 4%);
     position: fixed;
     width: 100%;
     height: 100%;
