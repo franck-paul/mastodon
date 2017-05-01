@@ -9,13 +9,13 @@
     padding: 8px;
     line-height: 18px;
     vertical-align: top;
-    border-top: 1px solid $default-border;
+    border-top: 1px solid $default-border-color;
     text-align: left;
   }
 
   & > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid $default-border;
+    border-bottom: 2px solid $default-border-color;
     border-top: 0;
     font-weight: 500;
   }

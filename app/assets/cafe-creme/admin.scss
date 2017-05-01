@@ -212,11 +212,11 @@
       text-transform: uppercase;
       font-size: 12px;
       font-weight: 500;
-      border-bottom: 2px solid $muted-border;
+      border-bottom: 2px solid $muted-border-color;
 
       &:hover {
         color: $default-text-color;
-        border-bottom: 2px solid $default-border;
+        border-bottom: 2px solid $default-border-color;
       }
 
       &.selected {

@@ -2,7 +2,7 @@
   .wrapper {
     background-color: $app-body-bg;
     border-radius: 1rem;
-    border: 1px solid $default-border;
+    border: 1px solid $default-border-color;
     box-sizing: border-box;
     color: $default-text-color;
     margin: 1rem auto;
@@ -71,7 +71,7 @@
     margin-bottom: 12px;
 
     a {
-      color: $vibrant;
+      color: $link-color;
       text-decoration: underline;
     }
   }
@@ -87,7 +87,7 @@
   }
 
   .screenshot {
-    box-shadow: 0 0 15px rgba($color8, 0.4);
+    box-shadow: 0 0 15px rgba($shadow-base, 0.4);
     margin-bottom: 26px;
 
     img {
@@ -107,13 +107,13 @@
       line-height: 36px;
 
       a {
-        color: $color3;
+        color: $link-color;
         text-decoration: underline;
       }
     }
   }
 
-  @media screen and (max-width: 625px) {
+  @include bpmax(beaucoup) {
     .wrapper {
       padding: 20px;
     }
@@ -128,8 +128,8 @@
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid $muted-border;
-  border-bottom: 1px solid $muted-border;
+  border-top: 1px solid $muted-border-color;
+  border-bottom: 1px solid $muted-border-color;
   padding-right: 14px;
 
   .section {
@@ -231,7 +231,7 @@
   }
 
   .sidebar {
-    border-left: 1px solid $muted-border;
+    border-left: 1px solid $muted-border-color;
     width: 180px;
     flex: 0 0 auto;
   }
