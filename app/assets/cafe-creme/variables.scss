@@ -1,3 +1,4 @@
+// original mastodon colors
 $color1: #282c37 !default; // darkest
 $color2: #d9e1e8 !default; // lightest
 $color3: #9baec8 !default; // lighter
@@ -7,53 +8,60 @@ $color6: #df405a !default; // error red
 $color7: #79bd9a !default; // succ green
 $color8: #000000 !default; // black
 
-$vibrant:                   #71BA51;
-$vibrant-highlight:         #EEE657;
-$accent:                    #FF6766;
-$muted-on-dark:             #d5d5d5;
-$muted-on-light:            #777;
-$highlight-on-light:        #000;
-$highlight-on-dark:         #fff;
+// cafe-creme colors
+// ------------------------------------------------
+$action:                    #CD6B97; // rose indien
+$vibrant:                   #71BA51; // vert pomme
+$vibrant-highlight:         #EEE657; // jaune canari
+$secret:                    #fe8095; // pêche
 
-$default-border:            #999;
+$dark-text:                 #212121;
+$muted-on-dark:             #d5d5d5; // gris clair
+$muted-on-light:            #777;    // gris foncé
+$highlight-on-light:        #000;    // noir
+$highlight-on-dark:         #fff;    // blanc
+
+// common borders
+$default-border:            #999;    // gris moyen
 $muted-border:              $muted-on-dark;
 
+// common backgrounds
 $default-body-bg:           #ECF0F1;
+$admin-body-bg:             $default-body-bg;
 $app-body-bg:               #fefefe;
-$admin-body-bg:             #ECF0F1;
-$default-text-color:        #212121;
-$muted-text-color:          $muted-on-light;
-
-//$button-bg:                 #607b84;
-$button-bg:                 #CD6B97;
-$button-text-color:         #fff;
-$button-bg-hover:           $vibrant;
-$button-disabled-bg:        $muted-on-dark;
-$button-active-color:       $highlight-on-dark;
-
 $ui-bg:                     $app-body-bg;
-$column-inner-bg:           $default-body-bg;
+$column-bg:                 $default-body-bg;
 $column-header-bg:          #97CE68;
+$drawer-bg:                 #d2dbde;
+$flyout-bg:                 #607b84;
+$flyout-header-bg:          #4b6067;
+$about-form-bg:             $default-body-bg;
+
+$default-text-color:        $dark-text;
+$muted-text-color:          $muted-on-light;
+$link-color:                #467686;
+
+$flyout-text-color:         $muted-on-dark;
+$flyout-link-color:         $highlight-on-dark;
 $column-empty-text:         $muted-on-light;
+$drawer-icon-color:         $flyout-link-color;
 $header-icon-color:         #444;
 $header-icon-hover-color:   $vibrant-highlight;
 $back-button-color:         #4b6067;
 
-$drawer-inner-bg:           #d2dbde;
-$drawer-header-bg:          #607b84;
-$drawer-icon-color:         #fff;
-
-$collapse-bg:               #4b6067;
-$collapse-text-color:       $muted-on-dark;
-
 $status-border-color:       $muted-border;
-$status-link:               #467686;
 $display-name-strong:       $default-text-color;
-$status-icon-highlight:     $accent;
+$status-icon-highlight:     $secret;
 $detailed-status-bg:        #e1e7e9;
 $detailed-status-action-bg: #e1e7e9;
+$spoiler-bg:                #d2dbde;
+$spoiler-hover-bg:          $vibrant-highlight;
+$icon-active-color:         $muted-text-color;
 
-$about-form-bg:             $column-inner-bg;
 $h1-color:                  $muted-text-color;
 $hx-color:                  #1d781d;
 
+$button-bg:                 #CD6B97;
+$button-text-color:         #fff;
+$button-bg-hover:           $vibrant;
+$button-disabled-bg:        $muted-on-dark;

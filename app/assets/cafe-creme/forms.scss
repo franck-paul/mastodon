@@ -117,11 +117,11 @@ code {
 
     &:invalid {
       box-shadow: none;
-      color: $accent;
+      color: $secret;
     }
 
     &:focus:invalid {
-      border-bottom-color: $accent;
+      border-bottom-color: $secret;
     }
 
     &:required:valid {
@@ -204,7 +204,7 @@ code {
 
 .flash-message {
   background: $default-body-bg;
-  color: $accent;
+  color: $default-text-color;
   border-radius: 4px;
   padding: 15px 10px;
   margin-bottom: 30px;

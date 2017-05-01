@@ -6,7 +6,7 @@
   .sidebar-wrapper {
     flex: 1;
     height: 100%;
-    background: $drawer-inner-bg;
+    background: $drawer-bg;
     display: flex;
     justify-content: flex-end;
   }
@@ -32,8 +32,8 @@
 
       a {
         display: block;
-        padding: 15px 25px;
-        color: $color5;
+        padding: 13px 25px;
+        color: $flyout-link-color;
         text-decoration: none;
         transition: all 200ms linear;
         border-radius: 4px 0 0 4px;
@@ -51,13 +51,13 @@
         }
 
         &.selected {
-          background-color: darken($collapse-bg, 10%);
+          background-color: darken($flyout-bg, 10%);
           border-radius: 4px 0 0 0;
         }
       }
 
       ul {
-        background: $drawer-header-bg;
+        background: $flyout-bg;
         border-radius: 0 0 0 4px;
         margin: 0;
 
@@ -79,7 +79,7 @@
     }
 
     > ul > li > a {
-      background-color: $collapse-bg;
+      background-color: $flyout-bg;
 
       &:hover,
       &:focus,

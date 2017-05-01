@@ -99,11 +99,11 @@
       }
 
       a.status__content__spoiler-link {
-        color: $color5;
-        background: $color3;
+        color: $default-text-color;
+        background: $spoiler-bg;
 
         &:hover {
-          background: lighten($color3, 8%);
+          background: darken($spoiler-bg, 5%);
         }
       }
     }
@@ -174,8 +174,8 @@
       }
 
       a.status__content__spoiler-link {
-        color: $color5;
-        background: $color3;
+        color: $default-text-color;
+        background: $spoiler-bg;
 
         &:hover {
           background: lighten($color3, 8%);
@@ -289,7 +289,7 @@
   }
 
   .media-spoiler {
-    background: $color3;
+    background: $spoiler-bg;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -305,7 +305,7 @@
     z-index: 2;
 
     &:hover {
-      background: darken($color3, 5%);
+      background: darken($spoiler-bg, 5%);
     }
 
     span {

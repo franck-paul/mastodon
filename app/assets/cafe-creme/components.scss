@@ -63,7 +63,7 @@
 
   &:hover {
     color: $header-icon-hover-color;
-    background-color: $collapse-bg;
+    background-color: $flyout-bg;
   }
 }
 
@@ -93,7 +93,7 @@
   transition: color 100ms ease-in;
 
   &:hover, &:active, &:focus {
-    color: lighten($color1, 33%);
+    color: $vibrant;
     transition: color 200ms ease-out;
   }
 
@@ -109,7 +109,7 @@
   }
 
   &.active {
-    color: $button-active-color;
+    color: $icon-active-color;
   }
 
   &::-moz-focus-inner {
@@ -128,7 +128,7 @@
     }
 
     &.active {
-      color: $button-active-color;
+      color: $icon-active-color;
     }
 
     &.disabled {
@@ -212,7 +212,7 @@
 .compose-form__warning {
   color: $default-text-color;
   margin-bottom: 15px;
-  background: $column-inner-bg;
+  background: $column-bg;
   box-shadow: 0 2px 6px rgba($color8, 0.3);
   padding: 8px 10px;
   border-radius: 4px;
@@ -250,7 +250,7 @@
 
 .compose-form__buttons {
   padding: 10px;
-  background: $column-inner-bg;
+  background: $column-bg;
   box-shadow: inset 0 5px 5px rgba($color8, 0.05);
   border-radius: 0 0 4px 4px;
   display: flex;
@@ -413,7 +413,7 @@
   }
 
   a {
-    color: $status-link;
+    color: $link-color;
     text-decoration: none;
 
     &:hover {
@@ -440,11 +440,11 @@
   }
 
   .status__content__spoiler-link {
-    background: $drawer-inner-bg;
+    background: $spoiler-bg;
     border: 1px solid $muted-border;
 
     &:hover {
-      background: $vibrant-highlight;
+      background: $spoiler-hover-bg;
       border-color: $default-border;
       text-decoration: none;
     }
@@ -454,7 +454,7 @@
 a.status__content__spoiler-link {
   display: inline-block;
   border-radius: 2px;
-  color: lighten($color1, 8%);
+  color: $default-text-color;
   font-weight: 500;
   font-size: 11px;
   padding: 0px 6px;
@@ -678,18 +678,18 @@ a.status__content__spoiler-link {
 
 .account__header {
   flex: 0 0 auto;
-  background: $drawer-header-bg;
+  background: $flyout-bg;
   text-align: center;
   background-size: cover;
   background-position: center;
   position: relative;
 
   & > div {
-    background: $collapse-bg;
+    background: rgba($flyout-bg, 0.7);
   }
 
   .account__header__content {
-    color: $color2;
+    color: $default-text-color;
   }
 
   .account__header__display-name {
@@ -697,7 +697,15 @@ a.status__content__spoiler-link {
   }
 
   .account__header__username {
+    color: $muted-on-dark;
+  }
+
+  .icon-button {
     color: $vibrant;
+
+    &.active {
+      color: $muted-on-dark;
+    }
   }
 
   // rendre lisible le bloc "user" dans la colonne de droite, même sur une image de fond claire
@@ -707,9 +715,9 @@ a.status__content__spoiler-link {
   }
 
   &:after {
-    background: -webkit-linear-gradient(rgba($column-inner-bg, 0.5), rgba($column-inner-bg, 0.8));
-    background: -o-linear-gradient(rgba($column-inner-bg, 0.5), rgba($column-inner-bg, 0.8));
-    background: linear-gradient(rgba($column-inner-bg, 0.5), rgba($column-inner-bg, 0.8));
+    background: -webkit-linear-gradient(rgba($column-bg, 0.5), rgba($column-bg, 0.8));
+    background: -o-linear-gradient(rgba($column-bg, 0.5), rgba($column-bg, 0.8));
+    background: linear-gradient(rgba($column-bg, 0.5), rgba($column-bg, 0.8));
     display: block;
     content: "";
     position: absolute;
@@ -926,12 +934,12 @@ a.status__content__spoiler-link {
   padding: 8px 0;
   padding-bottom: 0;
   cursor: default;
-  color: $color3;
+  color: $muted-text-color;
   font-size: 15px;
   position: relative;
 
   .fa {
-    color: $accent;
+    color: $vibrant;
   }
 }
 
@@ -940,7 +948,7 @@ a.status__content__spoiler-link {
   position: absolute;
 
   .star-icon {
-    color: $accent;
+    color: $vibrant;
   }
 }
 
@@ -954,7 +962,7 @@ a.status__content__spoiler-link {
   text-decoration: none;
 
   &:hover {
-    color: $color5;
+    color: $default-text-color;
     text-decoration: underline;
   }
 }
@@ -1151,7 +1159,7 @@ a.status__content__spoiler-link {
   flex-direction: column;
 
   > .scrollable {
-    background: $column-inner-bg;
+    background: $column-bg;
   }
 }
 
@@ -1277,7 +1285,7 @@ a.status__content__spoiler-link {
   position: absolute;
   top: 0;
   left: 0;
-  background: $drawer-inner-bg;
+  background: $drawer-bg;
   box-sizing: border-box;
   padding: 0;
   display: flex;
@@ -1288,7 +1296,7 @@ a.status__content__spoiler-link {
   height: 100%;
 
   &.darker {
-    background: $color1;
+    background: $flyout-bg;
   }
 }
 
@@ -1301,7 +1309,7 @@ a.status__content__spoiler-link {
 .drawer__header {
   flex: 0 0 auto;
   font-size: 16px;
-  background: $drawer-header-bg;
+  background: $flyout-header-bg;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -1498,7 +1506,7 @@ a.status__content__spoiler-link {
 
 .react-toggle--checked .react-toggle-track {
   background-color: $vibrant;
-  color: $collapse-text-color;
+  color: $flyout-text-color;
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
@@ -1564,7 +1572,7 @@ a.status__content__spoiler-link {
 }
 
 .column-link {
-  background: $drawer-header-bg;
+  background: $flyout-bg;
   color: $color5;
   display: block;
   font-size: 16px;
@@ -1572,7 +1580,7 @@ a.status__content__spoiler-link {
   text-decoration: none;
 
   &:hover {
-    background: darken($drawer-header-bg, 15%);
+    background: darken($flyout-bg, 15%);
   }
 
   &.hidden-on-mobile {
@@ -1588,8 +1596,8 @@ a.status__content__spoiler-link {
 }
 
 .column-subheading {
-  background: $collapse-bg;
-  color: $collapse-text-color;
+  background: $flyout-header-bg;
+  color: $flyout-text-color;
   padding: 8px 20px;
   font-size: 12px;
   font-weight: 500;
@@ -1724,9 +1732,9 @@ a.status__content__spoiler-link {
 .setting-text {
   background: transparent;
   border: none;
-  border-bottom: 2px solid $collapse-text-color;
+  border-bottom: 2px solid $flyout-text-color;
   box-sizing: border-box;
-  color: $collapse-text-color;
+  color: $flyout-text-color;
   display: block;
   font-family: inherit;
   margin-bottom: 10px;
@@ -1840,8 +1848,8 @@ button.icon-button.active i.fa-retweet {
   text-decoration: none;
 
   &:hover {
-    background: $collapse-bg;
-    color: $collapse-text-color;
+    background: $flyout-bg;
+    color: $flyout-text-color;
   }
 }
 
@@ -1904,8 +1912,8 @@ button.icon-button.active i.fa-retweet {
 }
 
 .collapsable {
-  background-color: $collapse-bg;
-  color: $collapse-text-color;
+  background-color: $flyout-bg;
+  color: $flyout-text-color;
 
   &:hover,
   &:focus {
@@ -1916,8 +1924,8 @@ button.icon-button.active i.fa-retweet {
 .media-spoiler,
 .video-error-cover {
   align-items: center;
-  background: $color8;
-  color: $color5;
+  background: $spoiler-bg;
+  color: $muted-text-color;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -1968,16 +1976,22 @@ button.icon-button.active i.fa-retweet {
 }
 
 .column-settings__outer {
-  background: $collapse-bg;
-  color: $collapse-text-color;
-  padding: 15px;
+  background: $flyout-bg;
+  color: $flyout-text-color;
 }
 
 .column-settings__section {
+  padding: 5px 15px;
+  background-color: $flyout-header-bg;
   cursor: default;
   display: block;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.column-settings__row {
+  padding: 5px 15px;
+  background-color: $flyout-bg;
 }
 
 .modal-container__nav {
@@ -2081,7 +2095,7 @@ button.icon-button.active i.fa-retweet {
 
 .empty-column-indicator {
   color: $column-empty-text;
-  background: $column-inner-bg;
+  background: $column-bg;
   text-align: center;
   padding: 20px;
   font-size: 15px;
@@ -2502,7 +2516,7 @@ button.icon-button.active i.fa-retweet {
 }
 
 .search__input {
-  background: $column-inner-bg;
+  background: $column-bg;
   box-sizing: border-box;
   border: 1px solid $muted-border;
   color: $default-text-color;
@@ -2579,8 +2593,8 @@ button.icon-button.active i.fa-retweet {
 }
 
 .search-results__header {
-  color: lighten($color1, 26%);
-  background: $collapse-bg;
+  color: $flyout-text-color;
+  background: $flyout-header-bg;
   border-bottom: 1px solid $vibrant;
   padding: 15px 10px;
   font-size: 14px;
@@ -2590,11 +2604,10 @@ button.icon-button.active i.fa-retweet {
 .search-results__hashtag {
   display: block;
   padding: 10px;
-  color: $color2;
+  color: $flyout-link-color;
   text-decoration: none;
 
   &:hover, &:active, &:focus {
-    color: lighten($color2, 4%);
     text-decoration: underline;
   }
 }
