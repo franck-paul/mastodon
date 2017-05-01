@@ -1,0 +1,67 @@
+// original mastodon colors
+$color1: #282c37 !default; // darkest
+$color2: #d9e1e8 !default; // lightest
+$color3: #9baec8 !default; // lighter
+$color4: #2b90d9 !default; // vibrant
+$color5: #ffffff !default; // white
+$color6: #df405a !default; // error red
+$color7: #79bd9a !default; // succ green
+$color8: #000000 !default; // black
+
+// cafe-creme colors
+// ------------------------------------------------
+$action:                    #CD6B97; // rose indien
+$vibrant:                   #71BA51; // vert pomme
+$vibrant-highlight:         #EEE657; // jaune canari
+$secret:                    #fe8095; // pêche
+
+$dark-text:                 #212121;
+$muted-on-dark:             #d5d5d5; // gris clair
+$muted-on-light:            #777;    // gris foncé
+$highlight-on-light:        #000;    // noir
+$highlight-on-dark:         #fff;    // blanc
+
+// common borders
+$default-border:            #999;    // gris moyen
+$muted-border:              $muted-on-dark;
+
+// common backgrounds
+$default-body-bg:           #ECF0F1;
+$admin-body-bg:             $default-body-bg;
+$app-body-bg:               #fefefe;
+$ui-bg:                     $app-body-bg;
+$column-bg:                 $default-body-bg;
+$column-header-bg:          #97CE68;
+$drawer-bg:                 #d2dbde;
+$flyout-bg:                 #607b84;
+$flyout-header-bg:          #4b6067;
+$about-form-bg:             $default-body-bg;
+
+$default-text-color:        $dark-text;
+$muted-text-color:          $muted-on-light;
+$link-color:                #467686;
+
+$flyout-text-color:         $muted-on-dark;
+$flyout-link-color:         $highlight-on-dark;
+$column-empty-text:         $muted-on-light;
+$drawer-icon-color:         $flyout-link-color;
+$header-icon-color:         #444;
+$header-icon-hover-color:   $vibrant-highlight;
+$back-button-color:         #4b6067;
+
+$status-border-color:       $muted-border;
+$display-name-strong:       $default-text-color;
+$status-icon-highlight:     $secret;
+$detailed-status-bg:        #e1e7e9;
+$detailed-status-action-bg: #e1e7e9;
+$spoiler-bg:                #d2dbde;
+$spoiler-hover-bg:          $vibrant-highlight;
+$icon-active-color:         $muted-text-color;
+
+$h1-color:                  $muted-text-color;
+$hx-color:                  #1d781d;
+
+$button-bg:                 #CD6B97;
+$button-text-color:         #fff;
+$button-bg-hover:           $vibrant;
+$button-disabled-bg:        $muted-on-dark;
