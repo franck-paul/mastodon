@@ -1162,16 +1162,9 @@ a.status__content__spoiler-link {
   flex: 1 1 auto;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 0 auto;
   overflow-x: auto;
   position: relative;
   padding: .25em;
-}
-
-@media screen and (min-width: 360px) {
-  .columns-area {
-    padding: 10px;
-  }
 }
 
 .drawer {
@@ -1253,7 +1246,8 @@ a.status__content__spoiler-link {
 
 @media screen and (min-width: 2560px) {
   .columns-area {
-    max-width: 1840px
+    max-width: 1840px;
+    margin: 0 auto;
   }
 
   .column, .drawer {
