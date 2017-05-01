@@ -4,9 +4,14 @@ code {
 }
 
 .form-container {
-  max-width: 30em;
-  padding: 20px;
   margin: 0 auto;
+  max-width: 30em;
+  padding: .5rem;
+  width: 96%;
+
+  @media screen and (min-width: 480px) {
+    padding: 1.5rem;
+  }
 }
 
 .simple_form {
@@ -100,15 +105,19 @@ code {
     }
   }
 
-  input[type=text], input[type=number], input[type=email], input[type=password], textarea {
+  input[type=text],
+  input[type=number],
+  input[type=email],
+  input[type=password],
+  textarea {
     background: transparent;
     box-sizing: border-box;
     border: 0;
-    border-bottom: 2px solid $color3;
+    border-bottom: 2px solid $default-border;
     border-radius: 2px 2px 0 0;
     padding: 7px 4px;
     font-size: 16px;
-    color: $vibrant;
+    color: $default-text-color;
     display: block;
     width: 100%;
     outline: 0;
@@ -117,19 +126,20 @@ code {
 
     &:invalid {
       box-shadow: none;
-      color: $secret;
+      border-bottom-color: $error;
+      color: $muted-text-color;
     }
 
     &:focus:invalid {
-      border-bottom-color: $secret;
+      border-bottom-color: $default-border;
     }
 
     &:required:valid {
-      border-bottom-color: $color7;
+      border-bottom-color: $success;
     }
 
     &:active, &:focus {
-      border-bottom-color: $vibrant;
+      border-bottom-color: $success;
       background: rgba($color8, 0.1);
     }
   }
@@ -221,11 +231,10 @@ code {
   text-align: center;
 
   a {
-    color: $color5;
-    text-decoration: none;
+    color: $muted-text-color;
 
     &:hover {
-      text-decoration: underline;
+      color: $default-text-color;
     }
   }
 }

@@ -475,6 +475,10 @@ a.status__content__spoiler-link {
   border-bottom: 1px solid $status-border-color;
   cursor: default;
 
+  &:hover {
+    background-color: $detailed-status-bg;
+  }
+
   &.light {
     .status__relative-time {
       color: $color3;
@@ -1207,8 +1211,7 @@ a.status__content__spoiler-link {
 
 @media screen and (min-width: 360px) {
   .tabs-bar {
-    margin: 10px;
-    margin-bottom: 0;
+    margin: .25em;
   }
 
   .search {
@@ -1303,7 +1306,7 @@ a.status__content__spoiler-link {
     transition: background 100ms ease-in;
 
     &:hover {
-      background: lighten($color1, 3%);
+      background: darken($flyout-header-bg, 20%);
       transition: background 200ms ease-out;
     }
   }
@@ -1311,7 +1314,7 @@ a.status__content__spoiler-link {
 
 .tabs-bar {
   display: flex;
-  background: lighten($color1, 8%);
+  background: $flyout-header-bg;
   flex: 0 0 auto;
   overflow-y: auto;
 }
@@ -1320,12 +1323,12 @@ a.status__content__spoiler-link {
   display: block;
   flex: 1 1 auto;
   padding: 15px 10px;
-  color: $color5;
+  color: $flyout-link-color;
   text-decoration: none;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 2px solid lighten($color1, 8%);
+  border-bottom: 2px solid $muted-border;
   transition: all 200ms linear;
 
   .fa {
@@ -1334,12 +1337,13 @@ a.status__content__spoiler-link {
   }
 
   &.active {
-    border-bottom: 2px solid $color4;
-    color: $color4;
+    background: darken($flyout-header-bg, 20%);
+    border-bottom: 2px solid $vibrant-highlight;
+    color: $vibrant-highlight;
   }
 
   &:hover, &:focus, &:active {
-    background: lighten($color1, 14%);
+    background: darken($flyout-header-bg, 20%);
     transition: all 100ms linear;
   }
 

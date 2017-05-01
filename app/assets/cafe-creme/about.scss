@@ -8,7 +8,7 @@
     margin: 1rem auto;
     max-width: 48rem;
     padding: 24px;
-    width: 90%;
+    width: 98%;
 
     &.thicc {
       max-width: 44rem;
@@ -238,7 +238,7 @@
 
   .panel {
     .panel-header {
-      background: $flyout-bg;
+      background: $flyout-header-bg;
       color: $flyout-text-color;
       padding: 7px 14px;
       text-transform: uppercase;
