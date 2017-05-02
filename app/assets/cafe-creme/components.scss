@@ -540,11 +540,11 @@ a.status__content__spoiler-link {
 }
 
 .status-check-box {
-  border-bottom: 1px solid lighten($color1, 8%);
+  border-bottom: 1px solid $default-border-color;
   display: flex;
 
   .status__content {
-    background: lighten($color1, 4%);
+    background: $drawer-bg;
     flex: 1 1 auto;
     padding: 10px;
   }
@@ -552,6 +552,7 @@ a.status__content__spoiler-link {
 
 .status-check-box-toggle {
   align-items: center;
+  background: $drawer-bg;
   display: flex;
   flex: 0 0 auto;
   justify-content: center;
@@ -2021,22 +2022,30 @@ button.icon-button.active i.fa-retweet {
   vertical-align: middle;
 }
 
+// signaler un compte
 .report.scrollable {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   max-height: 100%;
+
+  .react-toggle-track {
+    background-color: $flyout-bg;
+  }
 }
 
 .report__target {
-  border-bottom: 1px solid lighten($color1, 4%);
-  color: $color2;
+  background: rgba(lighten($error,20%),0.5);
+  border-bottom: 1px solid $default-border-color;
+  color: $error;
   flex: 0 0 auto;
   padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
 
   strong {
     display: block;
-    color: $color5;
+    color: $default-text-color;
     font-weight: 500;
   }
 }
@@ -2056,7 +2065,7 @@ button.icon-button.active i.fa-retweet {
   border: 0;
   border-bottom: 2px solid $color3;
   border-radius: 2px 2px 0 0;
-  color: $color5;
+  color: $default-text-color;
   display: block;
   font-family: inherit;
   font-size: 14px;
@@ -2067,7 +2076,7 @@ button.icon-button.active i.fa-retweet {
   width: 100%;
 
   &:active, &:focus {
-    border-bottom-color: $color4;
+    border-bottom-color: $action;
     background: rgba($shadow-base, 0.1);
   }
 }
