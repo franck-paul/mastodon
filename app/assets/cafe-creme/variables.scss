@@ -4,9 +4,9 @@ $color2: #d9e1e8 !default; // lightest
 $color3: #9baec8 !default; // lighter
 $color4: #2b90d9 !default; // vibrant
 $color5: #ffffff !default; // white
-$color6: #df405a !default; // error red
-$color7: #79bd9a !default; // succ green
-$color8: #000000 !default; // black
+// $color6: #df405a !default; // error red
+// $color7: #79bd9a !default; // succ green
+// $color8: #000000 !default; // black
 
 // cafe-creme colors
 // ------------------------------------------------
@@ -14,6 +14,9 @@ $action:                    #CD6B97; // rose indien
 $vibrant:                   #71BA51; // vert pomme
 $vibrant-highlight:         #EEE657; // jaune canari
 $secret:                    #fe8095; // pêche
+$error:                     #df405a;
+$success:                   #008000;
+$shadow-base:               #212121; // not so black
 
 $dark-text:                 #212121;
 $muted-on-dark:             #d5d5d5; // gris clair
@@ -22,8 +25,8 @@ $highlight-on-light:        #000;    // noir
 $highlight-on-dark:         #fff;    // blanc
 
 // common borders
-$default-border:            #999;    // gris moyen
-$muted-border:              $muted-on-dark;
+$default-border-color:      #999;    // gris moyen
+$muted-border-color:        $muted-on-dark;
 
 // common backgrounds
 $default-body-bg:           #ECF0F1;
@@ -49,7 +52,7 @@ $header-icon-color:         #444;
 $header-icon-hover-color:   $vibrant-highlight;
 $back-button-color:         #4b6067;
 
-$status-border-color:       $muted-border;
+$status-border-color:       $muted-border-color;
 $display-name-strong:       $default-text-color;
 $status-icon-highlight:     $secret;
 $detailed-status-bg:        #e1e7e9;
@@ -65,3 +68,41 @@ $button-bg:                 #CD6B97;
 $button-text-color:         #fff;
 $button-bg-hover:           $vibrant;
 $button-disabled-bg:        $muted-on-dark;
+
+
+// cafe-creme breakpoints
+// ------------------------------------------------
+
+// Usage:
+// @include bpmin(passion) {}
+@mixin bpmin($point) {
+   @if $point == unpeu {
+     @media screen and (min-width: 20.1em) { @content ; }    // 361px
+  }
+   @else if $point == beaucoup {
+     @media screen and (min-width: 39.1em) { @content ; }    // 625px
+  }
+    @else if $point == passion {
+     @media screen and (min-width: 64.1em) { @content ; }    // 1025px
+  }
+   @else if $point == folie {
+     @media screen and (min-width: 120.1em)  { @content ; }  // 1921px
+  }
+}
+
+// Usage:
+// @include bpmax(beaucoup) {}
+@mixin bpmax($point) {
+   @if $point == unpeu {
+     @media screen and (max-width: 20em) { @content ; }
+  }
+   @else if $point == beaucoup {
+     @media screen and (max-width: 39em) { @content ; }
+  }
+    @else if $point == passion {
+     @media screen and (max-width: 64em) { @content ; }
+  }
+   @else if $point == folie {
+     @media screen and (max-width: 120em)  { @content ; }
+  }
+}

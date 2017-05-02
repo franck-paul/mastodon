@@ -212,11 +212,11 @@
       text-transform: uppercase;
       font-size: 12px;
       font-weight: 500;
-      border-bottom: 2px solid $muted-border;
+      border-bottom: 2px solid $muted-border-color;
 
       &:hover {
         color: $default-text-color;
-        border-bottom: 2px solid $default-border;
+        border-bottom: 2px solid $default-border-color;
       }
 
       &.selected {
@@ -232,6 +232,14 @@
   margin-bottom: 20px;
 }
 
+// pas très propre mais il n'y a pas de class utilisable
+.admin-wrapper .report-accounts + p,
+.admin-wrapper .content > hr + p {
+  strong {
+    color: $hx-color;
+  }
+}
+
 .report-accounts__item {
   flex: 1 1 0;
   display: flex;
@@ -243,7 +251,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: $color2;
+    color: $hx-color;
   }
 
   &:first-child {

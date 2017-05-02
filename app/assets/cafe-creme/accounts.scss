@@ -1,10 +1,12 @@
+// contexte de la page d'un utilisateur
+// affichée hors instance
 .card {
-  background: $color1;
+  background: $shadow-base;
   background-size: cover;
   padding: 60px 0;
   padding-bottom: 0;
   border-radius: 4px 4px 0 0;
-  box-shadow: 0 0 15px rgba($color8, 0.2);
+  box-shadow: 0 0 15px rgba($shadow-base, 0.2);
   overflow: hidden;
   position: relative;
 
@@ -14,7 +16,7 @@
   }
 
   &:after {
-    background: linear-gradient(rgba($color8, 0.5), rgba($color8, 0.8));
+    background: linear-gradient(rgba($shadow-base, 0.5), rgba($shadow-base, 0.8));
     display: block;
     content: "";
     position: absolute;
@@ -29,17 +31,17 @@
     display: block;
     font-size: 20px;
     line-height: 18px * 1.5;
-    color: $color5;
+    color: $highlight-on-dark;
     font-weight: 500;
     text-align: center;
     position: relative;
     z-index: 2;
-    text-shadow: 0 0 2px $color8;
+    text-shadow: 0 0 2px $shadow-base;
 
     small {
       display: block;
       font-size: 14px;
-      color: $color4;
+      color: $muted-on-dark;
       font-weight: 400;
     }
   }
@@ -82,10 +84,10 @@
 
   .counter {
     width: 80px;
-    color: $color3;
+    color: $muted-on-dark;
     padding: 5px 10px 0px;
     margin-bottom: 10px;
-    border-right: 1px solid $color3;
+    border-right: 1px solid $default-border-color;
     cursor: default;
     position: relative;
 
@@ -100,14 +102,14 @@
       bottom: -10px;
       left: 0;
       width: 100%;
-      border-bottom: 4px solid $color3;
+      border-bottom: 4px solid $vibrant;
       opacity: 0.5;
       transition: all 0.8s ease;
     }
 
     &.active {
       &:after {
-        border-bottom: 4px solid $color4;
+        border-bottom: 4px solid $vibrant;
         opacity: 1;
       }
     }
@@ -129,13 +131,13 @@
       text-transform: uppercase;
       display: block;
       margin-bottom: 5px;
-      text-shadow: 0 0 2px $color8;
+      text-shadow: 0 0 2px $shadow-base;
     }
 
     .counter-number {
       font-weight: 500;
       font-size: 18px;
-      color: $color5;
+      color: $highlight-on-dark;
     }
   }
 
@@ -144,7 +146,7 @@
     font-size: 14px;
     line-height: 18px;
     padding: 5px 10px;
-    color: $color2;
+    color: $muted-on-dark;
     order: 1;
   }
 
@@ -173,9 +175,14 @@
   text-align: center;
   overflow: hidden;
 
-  a, .current, .next, .prev, .page, .gap {
+  a,
+  .current,
+  .next,
+  .prev,
+  .page,
+  .gap {
     font-size: 14px;
-    color: $color5;
+    color: $link-color;
     font-weight: 500;
     display: inline-block;
     padding: 6px 10px;
@@ -183,9 +190,9 @@
   }
 
   .current {
-    background: $color5;
+    background: $vibrant;
     border-radius: 100px;
-    color: $color1;
+    color: $default-text-color;
     cursor: default;
     margin: 0 10px;
   }
@@ -195,13 +202,14 @@
   }
 
   .prev, .next {
+    background-color: $action;
+    color: $default-text-color;
     text-transform: uppercase;
-    color: $color2;
   }
 
   .prev {
     float: left;
-    padding-left: 0;
+    padding-left: .5rem;
 
     .fa {
       display: inline-block;
@@ -211,7 +219,7 @@
 
   .next {
     float: right;
-    padding-right: 0;
+    padding-right: .5rem;
 
     .fa {
       display: inline-block;
@@ -227,18 +235,23 @@
   @media screen and (max-width: 360px) {
     padding: 30px 20px;
 
-    a, .current, .next, .prev, .gap {
+    a,
+    .current,
+    .next,
+    .prev,
+    .gap {
       display: none;
     }
 
-    .next, .prev {
+    .next,
+    .prev {
       display: inline-block;
     }
   }
 }
 
 .accounts-grid {
-  box-shadow: 0 0 15px rgba($color8, 0.2);
+  box-shadow: 0 0 15px rgba($shadow-base, 0.2);
   background: $color5;
   border-radius: 0 0 4px 4px;
   padding: 20px 10px;
@@ -333,7 +346,7 @@
   background: $color5;
   border-radius: 4px;
   text-align: left;
-  box-shadow: 0 0 15px rgba($color8, 0.2);
+  box-shadow: 0 0 15px rgba($shadow-base, 0.2);
 
   .detailed-status__display-name {
     display: block;
