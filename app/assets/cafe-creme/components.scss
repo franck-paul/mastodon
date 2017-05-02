@@ -371,7 +371,7 @@
   border-radius: 4px 4px 0 0;
   position: relative;
   bottom: -2px;
-  background: $color3;
+  background: $default-body-bg;
   padding: 10px;
 }
 
@@ -1877,12 +1877,12 @@ button.icon-button.active i.fa-retweet {
   outline: 0;
 
   &.active {
-    box-shadow: 0 1px 0 rgba($color4, 0.3);
+    box-shadow: 0 1px 0 rgba($vibrant, 0.3);
   }
 
   &.active .fa {
-    color: $color4;
-    text-shadow: 0 0 10px rgba($color4, 0.4);
+    color: $highlight-on-dark;
+    text-shadow: 0 0 10px rgba($highlight-on-dark, 0.4);
   }
 
   &.hidden-on-mobile {
