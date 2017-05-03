@@ -229,7 +229,7 @@
 
   .disabled {
     cursor: default;
-    color: lighten($color1, 10%);
+    color: $muted-text-color;
   }
 
   @media screen and (max-width: 360px) {
@@ -252,7 +252,7 @@
 
 .accounts-grid {
   box-shadow: 0 0 15px rgba($shadow-base, 0.2);
-  background: $color5;
+  background: $accounts-grid-bg;
   border-radius: 0 0 4px 4px;
   padding: 20px 10px;
   padding-bottom: 10px;
@@ -266,21 +266,26 @@
   }
 
   .account-grid-card {
+    background: $account-grid-card-bg;
     box-sizing: border-box;
-    width: 335px;
-    border: 1px solid $color2;
+    width: 100%;
+    border: 1px solid $default-border-color;
     border-radius: 4px;
-    color: $color1;
+    color: $default-text-color;
     margin-bottom: 10px;
 
-    &:nth-child(odd) {
-      margin-right: 10px;
+    @include bpmin(passion) {
+      width: 49%;
+
+      &:nth-child(odd) {
+        margin-right: 10px;
+      }
     }
 
     .account-grid-card__header {
       overflow: hidden;
       padding: 10px;
-      border-bottom: 1px solid $color2;
+      border-bottom: 1px solid $muted-border-color;
     }
 
     .avatar {
@@ -302,7 +307,7 @@
 
       a {
         display: block;
-        color: $color1;
+        color: $default-text-color;
         text-decoration: none;
 
         &:hover {
@@ -319,20 +324,20 @@
     }
 
     .username {
-      color: $color4;
+      color: $link-color;
     }
 
     .note {
       padding: 10px;
       padding-top: 15px;
-      color: $color3;
+      color: $muted-text-color;
       word-wrap: break-word;
     }
   }
 }
 
 .nothing-here {
-  color: $color3;
+  color: $muted-text-color;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
@@ -379,12 +384,12 @@
 
       strong {
         font-weight: 500;
-        color: $color1;
+        color: $default-text-color;
       }
 
       span {
         font-size: 14px;
-        color: $color3;
+        color: $muted-text-color;
       }
     }
 
@@ -399,6 +404,6 @@
 
   .account__header__content {
     font-size: 14px;
-    color: $color1;
+    color: $default-text-color;
   }
 }
