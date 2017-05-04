@@ -131,7 +131,7 @@
     }
 
     &.disabled {
-      color: $color3;
+      color: $muted-text-color;
     }
   }
 
@@ -232,12 +232,12 @@
   font-weight: 400;
 
   strong {
-    color: darken($color3, 33%);
+    color: $default-text-color;
     font-weight: 500;
   }
 
   a {
-    color: darken($color3, 33%);
+    color: $default-text-color;
     font-weight: 500;
     text-decoration: underline;
 
@@ -322,7 +322,7 @@
     vertical-align: middle;
     margin-bottom: 14px;
     margin-left: 8px;
-    color: $color3;
+    color: $muted-text-color;
   }
 }
 
@@ -386,7 +386,7 @@
 }
 
 .reply-indicator__display-name {
-  color: $color1;
+  color: $default-text-color;
   display: block;
   max-width: 100%;
   line-height: 24px;
@@ -463,7 +463,6 @@
 
     &:hover {
       background: $spoiler-hover-bg;
-      border-color: $default-border-color;
       text-decoration: none;
     }
   }
@@ -499,7 +498,7 @@ a.status__content__spoiler-link {
 
   &.light {
     .status__relative-time {
-      color: $color3;
+      color: $muted-text-color;
     }
 
     .status__display-name {
@@ -525,10 +524,10 @@ a.status__content__spoiler-link {
 
       a.status__content__spoiler-link {
         color: $color5;
-        background: $color3;
+        background: $spoiler-bg;
 
         &:hover {
-          background: lighten($color3, 8%);
+          background: $spoiler-hover-bg;
         }
       }
     }
@@ -536,11 +535,11 @@ a.status__content__spoiler-link {
 }
 
 .status__relative-time {
-  color: lighten($color1, 26%);
+  color: $muted-text-color;
 }
 
 .status__display-name {
-  color: lighten($color1, 26%);
+  color: $muted-text-color;
 }
 
 .status__info .status__display-name {
@@ -587,7 +586,7 @@ a.status__content__spoiler-link {
   position: relative;
 
   .status__display-name strong {
-    color: lighten($color1, 26%);
+    color: $muted-text-color;
   }
 }
 
@@ -668,7 +667,7 @@ a.status__content__spoiler-link {
   .account__display-name {
     flex: 1 1 auto;
     display: block;
-    color: $color3;
+    color: $muted-text-color;
     overflow: hidden;
     text-decoration: none;
     font-size: 14px;
@@ -715,7 +714,7 @@ a.status__content__spoiler-link {
   }
 
   .account__header__display-name {
-    color: $color5;
+    color: $highlight-on-dark;
   }
 
   .account__header__username {
@@ -955,11 +954,11 @@ a.status__content__spoiler-link {
   }
 
   a.status__content__spoiler-link {
-    background: lighten($color1, 26%);
+    background: $spoiler-bg;
     color: lighten($color1, 4%);
 
     &:hover {
-      background: lighten($color1, 29%);
+      background: $spoiler-hover-bg;
       text-decoration: none;
     }
   }
@@ -1039,7 +1038,7 @@ a.status__content__spoiler-link {
   display: flex;
   flex-shrink: 0;
   cursor: default;
-  color: $color3;
+  color: $muted-text-color;
 
   strong {
     color: $default-text-color;
@@ -1297,7 +1296,8 @@ a.status__content__spoiler-link {
   height: 100%;
 
   &.darker {
-    background: $flyout-bg;
+    background: $drawer-darker-bg;
+    border: 1px solid $drawer-darker-header-bg;
   }
 }
 
@@ -1310,7 +1310,7 @@ a.status__content__spoiler-link {
 .drawer__header {
   flex: 0 0 auto;
   font-size: 16px;
-  background: $flyout-header-bg;
+  background: $drawer-header-bg;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -1319,7 +1319,7 @@ a.status__content__spoiler-link {
     transition: background 100ms ease-in;
 
     &:hover {
-      background: darken($flyout-header-bg, 20%);
+      background: darken($drawer-header-bg, 20%);
       transition: background 200ms ease-out;
     }
   }
@@ -1393,7 +1393,7 @@ a.status__content__spoiler-link {
 }
 
 .react-autosuggest__section-title {
-  background: $color3;
+  background: $muted-text-color;
   padding: 4px 10px;
   font-weight: 500;
   cursor: default;
@@ -2077,7 +2077,7 @@ button.icon-button.active i.fa-retweet {
   background: transparent;
   box-sizing: border-box;
   border: 0;
-  border-bottom: 2px solid $color3;
+  border-bottom: 2px solid $muted-border-color;
   border-radius: 2px 2px 0 0;
   color: $default-text-color;
   display: block;
@@ -2500,12 +2500,12 @@ button.icon-button.active i.fa-retweet {
 
 .privacy-dropdown__option__content {
   flex: 1 1 auto;
-  color: darken($color3, 24%);
+  color: $muted-text-color;
 
   strong {
     font-weight: 500;
     display: block;
-    color: $color1;
+    color: $default-text-color;
   }
 }
 
@@ -2604,22 +2604,33 @@ button.icon-button.active i.fa-retweet {
 }
 
 .search-results__header {
-  color: $flyout-text-color;
-  background: $flyout-header-bg;
-  border-bottom: 1px solid $vibrant;
-  padding: 15px 10px;
+  background: $drawer-darker-header-bg;
+  border-bottom: 1px solid darken($drawer-darker-header-bg,10%);
   font-size: 14px;
   font-weight: 500;
+  padding: 15px 10px;
 }
 
 .search-results__hashtag {
+  background-color: $flyout-bg;
+  color: $flyout-link-color;
   display: block;
   padding: 10px;
-  color: $flyout-link-color;
   text-decoration: none;
 
   &:hover, &:active, &:focus {
     text-decoration: underline;
+  }
+}
+
+.search-results {
+  .status,
+  .account {
+    background-color: $column-bg;
+
+    &:hover {
+      background-color: $detailed-status-bg;
+    }
   }
 }
 
