@@ -386,7 +386,7 @@
 }
 
 .reply-indicator__display-name {
-  color: $color1;
+  color: $default-text-color;
   display: block;
   max-width: 100%;
   line-height: 24px;
@@ -540,7 +540,7 @@ a.status__content__spoiler-link {
 }
 
 .status__display-name {
-  color: lighten($color1, 26%);
+  color: $muted-text-color;
 }
 
 .status__info .status__display-name {
@@ -587,7 +587,7 @@ a.status__content__spoiler-link {
   position: relative;
 
   .status__display-name strong {
-    color: lighten($color1, 26%);
+    color: $muted-text-color;
   }
 }
 
@@ -668,7 +668,7 @@ a.status__content__spoiler-link {
   .account__display-name {
     flex: 1 1 auto;
     display: block;
-    color: $color3;
+    color: $muted-text-color;
     overflow: hidden;
     text-decoration: none;
     font-size: 14px;
@@ -715,7 +715,7 @@ a.status__content__spoiler-link {
   }
 
   .account__header__display-name {
-    color: $color5;
+    color: $highlight-on-dark;
   }
 
   .account__header__username {
@@ -1297,7 +1297,8 @@ a.status__content__spoiler-link {
   height: 100%;
 
   &.darker {
-    background: $flyout-bg;
+    background: $drawer-darker-bg;
+    border: 1px solid $drawer-darker-header-bg;
   }
 }
 
@@ -1310,7 +1311,7 @@ a.status__content__spoiler-link {
 .drawer__header {
   flex: 0 0 auto;
   font-size: 16px;
-  background: $flyout-header-bg;
+  background: $drawer-header-bg;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -1319,7 +1320,7 @@ a.status__content__spoiler-link {
     transition: background 100ms ease-in;
 
     &:hover {
-      background: darken($flyout-header-bg, 20%);
+      background: darken($drawer-header-bg, 20%);
       transition: background 200ms ease-out;
     }
   }
@@ -2604,22 +2605,33 @@ button.icon-button.active i.fa-retweet {
 }
 
 .search-results__header {
-  color: $flyout-text-color;
-  background: $flyout-header-bg;
-  border-bottom: 1px solid $vibrant;
-  padding: 15px 10px;
+  background: $drawer-darker-header-bg;
+  border-bottom: 1px solid darken($drawer-darker-header-bg,10%);
   font-size: 14px;
   font-weight: 500;
+  padding: 15px 10px;
 }
 
 .search-results__hashtag {
+  background-color: $flyout-bg;
+  color: $flyout-link-color;
   display: block;
   padding: 10px;
-  color: $flyout-link-color;
   text-decoration: none;
 
   &:hover, &:active, &:focus {
     text-decoration: underline;
+  }
+}
+
+.search-results {
+  .status,
+  .account {
+    background-color: $column-bg;
+
+    &:hover {
+      background-color: $detailed-status-bg;
+    }
   }
 }
 

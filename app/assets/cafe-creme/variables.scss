@@ -12,7 +12,7 @@ $color5: #ffffff !default; // white
 // ------------------------------------------------
 $action:                    #CD6B97; // rose indien
 $vibrant:                   #71BA51; // vert pomme
-$vibrant-highlight:         #EEE657; // jaune canari
+$vibrant-highlight:         #FEC606; // jaune d'oeuf
 $secret:                    #fe8095; // pêche
 $error:                     #df405a;
 $success:                   #008000;
@@ -20,7 +20,7 @@ $shadow-base:               #212121; // not so black
 
 $dark-text:                 #212121;
 $muted-on-dark:             #d5d5d5; // gris clair
-$muted-on-light:            #6c6c6c; // gris foncé
+$muted-on-light:            #566e76; // gris foncé
 $highlight-on-light:        #000;    // noir
 $highlight-on-dark:         #fff;    // blanc
 
@@ -29,22 +29,25 @@ $default-border-color:      #999;    // gris moyen
 $muted-border-color:        $muted-on-dark;
 
 // common backgrounds
-$default-body-bg:           #ECF0F1;
+$default-body-bg:           #f1f4f5;
 $admin-body-bg:             $default-body-bg;
 $app-body-bg:               #fefefe;
 $ui-bg:                     $app-body-bg;
+$flyout-bg:                 #607b84;
+$flyout-header-bg:          #4b6067;
 $column-bg:                 $default-body-bg;
 $column-header-bg:          #97CE68;
 $drawer-bg:                 #d2dbde;
-$flyout-bg:                 #607b84;
-$flyout-header-bg:          #4b6067;
+$drawer-header-bg:          $flyout-header-bg;
+$drawer-darker-bg:          $flyout-bg;
+$drawer-darker-header-bg:   $vibrant-highlight;
 $about-form-bg:             $default-body-bg;
 $accounts-grid-bg:          $default-body-bg;
 $account-grid-card-bg:      $app-body-bg;
 
 $default-text-color:        $dark-text;
 $muted-text-color:          $muted-on-light;
-$link-color:                #307686;
+$link-color:                #207686;
 
 $flyout-text-color:         $muted-on-dark;
 $flyout-link-color:         $highlight-on-dark;
