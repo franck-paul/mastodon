@@ -36,16 +36,12 @@ a.status__content__spoiler-link:hover {
 .drawer__tab,
 .tabs-bar__link,
 .sidebar a:not(.selected),
-.column div:not(.status-list__unread-indicator):not(.notifications__unread-indicator):not(.status__video-player-spoiler):not(.spoiler-button):not(.status__video-player-expand):not(.status__video-player-mute),
+.column div:not(.status-list__unread-indicator):not(.notifications__unread-indicator):not(.status__video-player-spoiler):not(.spoiler-button):not(.status__video-player-expand):not(.status__video-player-mute):not(.video-player):not(.video-player__buttons):not(.video-player__seek):not(.video-player__controls),
 .drawer__inner {
     background-color: #f0f0f0!important;
 }
 .scrollable div {
     border-bottom: none!important;
-}
-.status__video-player-mute {
-    bottom: 4px;
-    top: inherit;
 }
 .counter-label,
 .bio .account__header__content,
@@ -75,14 +71,6 @@ input.file .block-button {
 .status__content p,
 .reply-indicator__content p {
     margin-bottom: 5px;
-}
-div.media-spoiler-video-play-icon {
-    text-align: center;
-    width: 36px;
-    left: 50%;
-}
-div.media-spoiler-video-play-icon >i.fa-play {
-    margin-left: 6px;
 }
 .notification-bar-message,
 .notification-bar-title,
@@ -192,13 +180,6 @@ input.search__input:focus,
     background: #2b90d9;
     color: white;
 }
-.spoiler-button,
-.status__video-player-spoiler {
-    z-index: 100;
-    top: 4px;
-    left: 4px;
-    position: absolute;
-}
 .media-gallery__item-thumbnail {
     background-size: auto;
     text-align:center;
@@ -219,4 +200,31 @@ input.search__input:focus,
 }
 .status.status-direct{
     background: #f0f0f0;
+}
+.p-author a{
+    color: white !important;
+}
+.icon-button.overlayed i
+{
+       color:white !important;
+}
+.video-player div
+{
+    background: rgba(0,0,0,0.5);
+}
+.video-player.inline video{
+    object-fit: contain;
+}
+.media-gallery__item-thumbnail img {
+    object-fit: contain;
+}
+.media-gallery__item-gifv-thumbnail {
+   object-fit: contain;
+}
+div.video-player.inline{
+    margin-left: auto;
+    margin-right: auto;
+}
+.ui {
+    background: white;
 }
