@@ -1,5 +1,10 @@
 @import 'variables';
 
+// Special Café
+.column-header{
+  background: $classic-highlight-color;
+}
+
 // Text-icons status buttons
 .status,
 .status.status-direct {
