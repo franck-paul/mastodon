@@ -181,3 +181,16 @@ button.icon-button.disabled i.fa-retweet {
 .compose-form .compose-form__warning {
   background: $classic-base-color;
 }
+
+@media (min-width: 800px) {
+    .drawer, .column {
+        flex: 1;
+        width: auto;
+    }
+    .drawer {
+        min-width: 300px;
+    }
+    .column {
+        min-width: 330px;
+    }
+}
