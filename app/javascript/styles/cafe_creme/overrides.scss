@@ -4,6 +4,9 @@
 .column-header{
   background: $classic-highlight-color;
 }
+.empty-column-indicator {
+  color: $classic-primary-color;
+}
 
 // Text-icons status buttons
 .status,
@@ -118,7 +121,7 @@ button.icon-button.disabled i.fa-retweet {
 }
 
 .privacy-dropdown__option,
-.privacy-dropdown__option__content strong {
+.privacy-dropdown__option__content strong, {
   color: $classic-primary-color;
 }
 
