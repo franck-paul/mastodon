@@ -1,2 +1,3 @@
 default: styles/application.scss
 Light: styles/mastodon_light.scss
+Café: styles/cafe_creme.scss
