@@ -176,8 +176,13 @@ button.icon-button.disabled i.fa-retweet {
 .compose-form .compose-form__buttons-wrapper .character-counter__wrapper .character-counter,
 .account__header__content a,
 .column-header__back-button,
-.column-back-button {
+.column-back-button,
+.account__header__username {
   color: $classic-secondary-color;
+}
+
+.account__header > div {
+    background: hsla(0, 0%, 98%, .8);
 }
 
 .compose-form .compose-form__warning {
@@ -186,7 +191,7 @@ button.icon-button.disabled i.fa-retweet {
 
 .status .icon-button.active,
 .status.status-direct .icon-button.active {
-  color: $classic-highlight-color;
+  color: $status-buttons-active-color;
 }
 
 @media (min-width: 800px) {
