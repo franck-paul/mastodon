@@ -174,7 +174,9 @@ button.icon-button.disabled i.fa-retweet {
 .table a,
 .reply-indicator__content a,
 .compose-form .compose-form__buttons-wrapper .character-counter__wrapper .character-counter,
-.account__header__content a {
+.account__header__content a,
+.column-header__back-button,
+.column-back-button {
   color: $classic-secondary-color;
 }
 
