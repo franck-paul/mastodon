@@ -184,6 +184,11 @@ button.icon-button.disabled i.fa-retweet {
   background: $classic-base-color;
 }
 
+.status .icon-button.active,
+.status.status-direct .icon-button.active {
+  color: $classic-highlight-color;
+}
+
 @media (min-width: 800px) {
     .drawer, .column {
         flex: 1;
