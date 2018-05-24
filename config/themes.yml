@@ -1,3 +1,4 @@
 default: styles/application.scss
+contrast: styles/contrast.scss
 Light: styles/mastodon_light.scss
 Cafe: styles/cafe_creme.scss

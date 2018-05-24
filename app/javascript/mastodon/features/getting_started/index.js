@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { me } from '../../initial_state';
+import { fetchFollowRequests } from '../../actions/accounts';
+import { List as ImmutableList } from 'immutable';
 
 const messages = defineMessages({
   heading: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -17,11 +19,13 @@ const messages = defineMessages({
   navigation_subheading: { id: 'column_subheading.navigation', defaultMessage: 'Navigation' },
   settings_subheading: { id: 'column_subheading.settings', defaultMessage: 'Settings' },
   community_timeline: { id: 'navigation_bar.community_timeline', defaultMessage: 'Local timeline' },
+  direct: { id: 'navigation_bar.direct', defaultMessage: 'Direct messages' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
   follow_requests: { id: 'navigation_bar.follow_requests', defaultMessage: 'Follow requests' },
   sign_out: { id: 'navigation_bar.logout', defaultMessage: 'Logout' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favourites' },
   blocks: { id: 'navigation_bar.blocks', defaultMessage: 'Blocked users' },
+  domain_blocks: { id: 'navigation_bar.domain_blocks', defaultMessage: 'Hidden domains' },
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   info: { id: 'navigation_bar.info', defaultMessage: 'Extended information' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
@@ -32,9 +36,25 @@ const messages = defineMessages({
 const mapStateToProps = state => ({
   myAccount: state.getIn(['accounts', me]),
   columns: state.getIn(['settings', 'columns']),
+  unreadFollowRequests: state.getIn(['user_lists', 'follow_requests', 'items'], ImmutableList()).size,
+  unreadNotifications: state.getIn(['notifications', 'unread']),
 });
 
-@connect(mapStateToProps)
+const mapDispatchToProps = dispatch => ({
+  fetchFollowRequests: () => dispatch(fetchFollowRequests()),
+});
+
+const badgeDisplay = (number, limit) => {
+  if (number === 0) {
+    return undefined;
+  } else if (limit && number >= limit) {
+    return `${limit}+`;
+  } else {
+    return number;
+  }
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
 @injectIntl
 export default class GettingStarted extends ImmutablePureComponent {
 
@@ -43,10 +63,21 @@ export default class GettingStarted extends ImmutablePureComponent {
     myAccount: ImmutablePropTypes.map.isRequired,
     columns: ImmutablePropTypes.list,
     multiColumn: PropTypes.bool,
+    fetchFollowRequests: PropTypes.func.isRequired,
+    unreadFollowRequests: PropTypes.number,
+    unreadNotifications: PropTypes.number,
   };
 
+  componentDidMount () {
+    const { myAccount, fetchFollowRequests } = this.props;
+
+    if (myAccount.get('locked')) {
+      fetchFollowRequests();
+    }
+  }
+
   render () {
-    const { intl, myAccount, columns, multiColumn } = this.props;
+    const { intl, myAccount, columns, multiColumn, unreadFollowRequests, unreadNotifications } = this.props;
 
     const navItems = [];
 
@@ -56,7 +87,7 @@ export default class GettingStarted extends ImmutablePureComponent {
       }
 
       if (!columns.find(item => item.get('id') === 'NOTIFICATIONS')) {
-        navItems.push(<ColumnLink key='1' icon='bell' text={intl.formatMessage(messages.notifications)} to='/notifications' />);
+        navItems.push(<ColumnLink key='1' icon='bell' text={intl.formatMessage(messages.notifications)} badge={badgeDisplay(unreadNotifications)} to='/notifications' />);
       }
 
       if (!columns.find(item => item.get('id') === 'COMMUNITY')) {
@@ -68,20 +99,24 @@ export default class GettingStarted extends ImmutablePureComponent {
       }
     }
 
+    if (!multiColumn || !columns.find(item => item.get('id') === 'DIRECT')) {
+      navItems.push(<ColumnLink key='4' icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />);
+    }
+
     navItems.push(
-      <ColumnLink key='4' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
-      <ColumnLink key='5' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
+      <ColumnLink key='5' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
+      <ColumnLink key='6' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
     );
 
     if (myAccount.get('locked')) {
-      navItems.push(<ColumnLink key='6' icon='users' text={intl.formatMessage(messages.follow_requests)} to='/follow_requests' />);
+      navItems.push(<ColumnLink key='7' icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
     }
 
     if (multiColumn) {
-      navItems.push(<ColumnLink key='7' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' />);
+      navItems.push(<ColumnLink key='8' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' />);
     }
 
-    navItems.push(<ColumnLink key='8' icon='book' text={intl.formatMessage(messages.info)} href='/about/more' />);
+    navItems.push(<ColumnLink key='9' icon='book' text={intl.formatMessage(messages.info)} href='/about/more' />);
 
     return (
       <Column icon='asterisk' heading={intl.formatMessage(messages.heading)} hideHeadingOnMobile>
@@ -92,6 +127,7 @@ export default class GettingStarted extends ImmutablePureComponent {
           <ColumnLink icon='thumb-tack' text={intl.formatMessage(messages.pins)} to='/pinned' />
           <ColumnLink icon='volume-off' text={intl.formatMessage(messages.mutes)} to='/mutes' />
           <ColumnLink icon='ban' text={intl.formatMessage(messages.blocks)} to='/blocks' />
+          <ColumnLink icon='minus-circle' text={intl.formatMessage(messages.domain_blocks)} to='/domain_blocks' />
           <ColumnLink icon='cog' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />
           <ColumnLink icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
         </div>
