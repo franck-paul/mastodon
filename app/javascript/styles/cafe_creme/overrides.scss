@@ -156,6 +156,10 @@ button.icon-button.disabled i.fa-retweet {
   background: $classic-highlight-color;
 }
 
+.column-header > .column-header__back-button {
+  color: $primary-text-color;
+}
+
 .empty-column-indicator {
   color: $classic-primary-color;
 }
