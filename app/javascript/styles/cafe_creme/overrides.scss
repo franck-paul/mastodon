@@ -103,7 +103,7 @@ button.icon-button.disabled i.fa-retweet {
   }
 }
 
-.compose-form__warning {
+.compose-form__warning, .compose-form .compose-form__warning {
   background: $classic-primary-color;
 }
 
