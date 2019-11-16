@@ -102,12 +102,12 @@ export function Mutes () {
   return import(/* webpackChunkName: "features/mutes" */'../../mutes');
 }
 
-export function OnboardingModal () {
-  return import(/* webpackChunkName: "modals/onboarding_modal" */'../components/onboarding_modal');
-}
-
 export function MuteModal () {
   return import(/* webpackChunkName: "modals/mute_modal" */'../components/mute_modal');
+}
+
+export function BlockModal () {
+  return import(/* webpackChunkName: "modals/block_modal" */'../components/block_modal');
 }
 
 export function ReportModal () {
@@ -128,4 +128,24 @@ export function EmbedModal () {
 
 export function ListEditor () {
   return import(/* webpackChunkName: "features/list_editor" */'../../list_editor');
+}
+
+export function ListAdder () {
+  return import(/*webpackChunkName: "features/list_adder" */'../../list_adder');
+}
+
+export function Search () {
+  return import(/*webpackChunkName: "features/search" */'../../search');
+}
+
+export function Tesseract () {
+  return import(/*webpackChunkName: "tesseract" */'tesseract.js');
+}
+
+export function Audio () {
+  return import(/* webpackChunkName: "features/audio" */'../../audio');
+}
+
+export function Directory () {
+  return import(/* webpackChunkName: "features/directory" */'../../directory');
 }

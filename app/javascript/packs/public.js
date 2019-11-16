@@ -1,3 +1,4 @@
+import escapeTextContentForBrowser from 'escape-html';
 import loadPolyfills from '../mastodon/load_polyfills';
 import ready from '../mastodon/ready';
 import { start } from '../mastodon/common';
@@ -30,7 +31,24 @@ function main() {
   const React = require('react');
   const ReactDOM = require('react-dom');
   const Rellax = require('rellax');
-  const createHistory = require('history').createBrowserHistory;
+  const { createBrowserHistory } = require('history');
+
+  const scrollToDetailedStatus = () => {
+    const history = createBrowserHistory();
+    const detailedStatuses = document.querySelectorAll('.public-layout .detailed-status');
+    const location = history.location;
+
+    if (detailedStatuses.length === 1 && (!location.state || !location.state.scrolledToDetailedStatus)) {
+      detailedStatuses[0].scrollIntoView();
+      history.replace(location.pathname, { ...location.state, scrolledToDetailedStatus: true });
+    }
+  };
+
+  const getEmojiAnimationHandler = (swapTo) => {
+    return ({ target }) => {
+      target.src = target.getAttribute(swapTo);
+    };
+  };
 
   ready(() => {
     const locale = document.documentElement.lang;
@@ -63,7 +81,7 @@ function main() {
       content.textContent = timeAgoString({
         formatMessage: ({ id, defaultMessage }, values) => (new IntlMessageFormat(messages[id] || defaultMessage, locale)).format(values),
         formatDate: (date, options) => (new Intl.DateTimeFormat(locale, options)).format(date),
-      }, datetime, now, datetime.getFullYear());
+      }, datetime, now, now.getFullYear());
     });
 
     const reactComponents = document.querySelectorAll('[data-component]');
@@ -71,12 +89,24 @@ function main() {
     if (reactComponents.length > 0) {
       import(/* webpackChunkName: "containers/media_container" */ '../mastodon/containers/media_container')
         .then(({ default: MediaContainer }) => {
+          [].forEach.call(reactComponents, (component) => {
+            [].forEach.call(component.children, (child) => {
+              component.removeChild(child);
+            });
+          });
+
           const content = document.createElement('div');
 
           ReactDOM.render(<MediaContainer locale={locale} components={reactComponents} />, content);
           document.body.appendChild(content);
+          scrollToDetailedStatus();
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+          console.error(error);
+          scrollToDetailedStatus();
+        });
+    } else {
+      scrollToDetailedStatus();
     }
 
     const parallaxComponents = document.querySelectorAll('.parallax');
@@ -85,14 +115,8 @@ function main() {
       new Rellax('.parallax', { speed: -1 });
     }
 
-    const history = createHistory();
-    const detailedStatuses = document.querySelectorAll('.public-layout .detailed-status');
-    const location = history.location;
-
-    if (detailedStatuses.length === 1 && (!location.state || !location.state.scrolledToDetailedStatus)) {
-      detailedStatuses[0].scrollIntoView();
-      history.replace(location.pathname, { ...location.state, scrolledToDetailedStatus: true });
-    }
+    delegate(document, '.custom-emoji', 'mouseover', getEmojiAnimationHandler('data-original'));
+    delegate(document, '.custom-emoji', 'mouseout', getEmojiAnimationHandler('data-static'));
   });
 
   delegate(document, '.webapp-btn', 'click', ({ target, button }) => {
@@ -103,18 +127,27 @@ function main() {
     return false;
   });
 
-  delegate(document, '.status__content__spoiler-link', 'click', ({ target }) => {
-    const contentEl = target.parentNode.parentNode.querySelector('.e-content');
+  delegate(document, '.status__content__spoiler-link', 'click', function() {
+    const contentEl = this.parentNode.parentNode.querySelector('.e-content');
 
     if (contentEl.style.display === 'block') {
       contentEl.style.display = 'none';
-      target.parentNode.style.marginBottom = 0;
+      this.parentNode.style.marginBottom = 0;
     } else {
       contentEl.style.display = 'block';
-      target.parentNode.style.marginBottom = null;
+      this.parentNode.style.marginBottom = null;
     }
 
     return false;
+  });
+
+  delegate(document, '.blocks-table button.icon-button', 'click', function(e) {
+    e.preventDefault();
+
+    const classList = this.firstElementChild.classList;
+    classList.toggle('fa-chevron-down');
+    classList.toggle('fa-chevron-up');
+    this.parentElement.parentElement.nextElementSibling.classList.toggle('hidden');
   });
 
   delegate(document, '.modal-button', 'click', e => {
@@ -133,9 +166,12 @@ function main() {
 
   delegate(document, '#account_display_name', 'input', ({ target }) => {
     const name = document.querySelector('.card .display-name strong');
-
     if (name) {
-      name.innerHTML = emojify(target.value);
+      if (target.value) {
+        name.innerHTML = emojify(escapeTextContentForBrowser(target.value));
+      } else {
+        name.textContent = document.querySelector('#default_account_display_name').textContent;
+      }
     }
   });
 
@@ -146,6 +182,21 @@ function main() {
 
     avatar.src = url;
   });
+
+  const getProfileAvatarAnimationHandler = (swapTo) => {
+    //animate avatar gifs on the profile page when moused over
+    return ({ target }) => {
+      const swapSrc = target.getAttribute(swapTo);
+      //only change the img source if autoplay is off and the image src is actually different
+      if(target.getAttribute('data-autoplay') !== 'true' && target.src !== swapSrc) {
+        target.src = swapSrc;
+      }
+    };
+  };
+
+  delegate(document, 'img#profile_page_avatar', 'mouseover', getProfileAvatarAnimationHandler('data-original'));
+
+  delegate(document, 'img#profile_page_avatar', 'mouseout', getProfileAvatarAnimationHandler('data-static'));
 
   delegate(document, '#account_header', 'change', ({ target }) => {
     const header = document.querySelector('.card .card__img img');
@@ -166,14 +217,20 @@ function main() {
   });
 
   delegate(document, '.input-copy input', 'click', ({ target }) => {
+    target.focus();
     target.select();
+    target.setSelectionRange(0, target.value.length);
   });
 
   delegate(document, '.input-copy button', 'click', ({ target }) => {
     const input = target.parentNode.querySelector('.input-copy__wrapper input');
 
+    const oldReadOnly = input.readonly;
+
+    input.readonly = false;
     input.focus();
     input.select();
+    input.setSelectionRange(0, input.value.length);
 
     try {
       if (document.execCommand('copy')) {
@@ -186,6 +243,18 @@ function main() {
       }
     } catch (err) {
       console.error(err);
+    }
+
+    input.readonly = oldReadOnly;
+  });
+
+  delegate(document, '.sidebar__toggle__icon', 'click', () => {
+    const target = document.querySelector('.sidebar ul');
+
+    if (target.style.display === 'block') {
+      target.style.display = 'none';
+    } else {
+      target.style.display = 'block';
     }
   });
 }
