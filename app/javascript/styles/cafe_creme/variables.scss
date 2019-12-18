@@ -1,10 +1,12 @@
 // Commonly used web colors
-$black: #000;               // Black
-$white: #fff;               // White
-$success-green: #79bd9a;    // Padua
-$error-red: #df405a;        // Cerise
-$warning-red: #ff5050;      // Sunset Orange
-$gold-star: #ca8f04;        // Dark Goldenrod
+$black: #000000;            // Black
+$white: #ffffff;            // White
+$success-green: #79bd9a !default;    // Padua
+$error-red: #df405a !default;        // Cerise
+$warning-red: #ff5050 !default;      // Sunset Orange
+$gold-star: #ca8f04 !default;        // Dark Goldenrod
+
+$red-bookmark: $warning-red;
 
 // Values from the classic Mastodon UI
 $classic-base-color: #f0f0f0;       // Very light grey        //#282c37; // Midnight Express
@@ -17,7 +19,6 @@ $base-shadow-color: $black !default;
 $base-overlay-background: $black !default;
 $base-border-color: $white !default;
 $simple-background-color: $white !default;
-$primary-text-color: $black !default;
 $valid-value-color: $success-green !default;
 $error-value-color: $error-red !default;
 
@@ -59,3 +60,7 @@ $media-modal-media-max-width: 100%;
 $media-modal-media-max-height: 80%;
 
 $no-gap-breakpoint: 415px;
+
+$font-sans-serif: 'mastodon-font-sans-serif' !default;
+$font-display: 'mastodon-font-display' !default;
+$font-monospace: 'mastodon-font-monospace' !default;
